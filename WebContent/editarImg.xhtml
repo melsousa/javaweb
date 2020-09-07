@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    
+    <meta name="generator" content="Jekyll v3.8.5"/>
+    <title>Focinho Adoção</title>
+	<link rel ="stylesheet" href="../css/bootstrap.css"/>
+	
+	<style>
+  	body{
+  		 background-color:rgba(0,0,0,0.7);
+  	}
+  </style>
+	
+<f:metadata>
+	<f:event listener="#{EditImg.consultaId(param['id'])}" type="preRenderView"></f:event>
+</f:metadata>
+</h:head>
+<h:body>
+
+		<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: rgba(0,0,0,0.6);">
+    <a class="navbar-brand" href="index.xhtml">Voltar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="index.xhtml">Focinhos</a>
+        </li>
+               
+      </ul>
+     
+    </div>
+  </nav>
+</header>
+	<div class="jumbotron jumbotron-fluid" style="background-color:white;">
+		<div class="container">
+			 <h1 class="display-4">Atualize as informações da Imagem</h1>
+			 <p class="lead">Deixe as informações imagens, coloque o nome, uma descrição e uma foto  </p>
+	<h:form enctype="multipart/form-data">
+		
+		<h:inputHidden value="#{EditImg.id}"></h:inputHidden>
+		<div class="custom-file">
+		 <label class="custom-file-label" for="customFile">imagem</label>
+		<h:inputFile value="#{EditImg.foto}" class="custom-file-input" id="customFile"></h:inputFile>
+		</div>
+		<div class="form-group">
+		<label for="exampleFormControlInput1">Nome da imagem</label>
+		<h:inputText value="#{EditImg.texto}" class="form-control" name="texto" requiredMessage="texto"/>
+		</div>
+		<div class="form-group">
+		<label for="exampleFormControlTextarea1">preve descrição</label>
+		<h:inputTextarea class="form-control" rows="3" value="#{EditImg.titulo}"/>
+		</div>
+		<h:commandButton value="Atualizar" type="submit" class="btn btn-outline-info">
+		<f:ajax render="msg" listener="#{EditImg.atualizarImg()}" execute="@form" onevent="teste"></f:ajax>
+		</h:commandButton>
+	</h:form>
+	<div id="res"></div>
+   		<script>
+   		function teste(data){
+   			switch(data.status){
+   			case "begin":
+   				document.getElementById("res").innerHTML = "iniciando...";break;
+			case "complete":
+					document.getElementById("res").innerHTML = "completando...";break;
+			case "success":
+				document.getElementById("res").innerHTML = "finalizado.";break;
+   			}
+   		}
+   		</script>
+   		
+   		</div>
+   		</div>
+   				
+		<footer class="container">
+		<p class="float-right"><a href="#">Voltar ao topo</a></p>
+		<p>2019 Densenvolvido: Melissa de Sousa &middot;<a href="https://about.gitlab.com/">Gitlab</a> &middot;<a href="https://gitlab.com/melsousa/javaweb">@melsousa</a>
+		
+				</p>
+		</footer>
+   	
+</h:body>
+	<script src="../js/jquery-3.3.1.slim.min.js"></script>
+	  <script src="../js/jquery-slim.min.js"></script>
+	  <script src="../js/bootstrap.bundle.js" ></script>
+		
+</html>

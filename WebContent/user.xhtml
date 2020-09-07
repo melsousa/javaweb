@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    
+    <meta name="generator" content="Jekyll v3.8.5"/>
+    <title>Focinho Adoção</title>
+	
+	 <link rel="stylesheet" href="../css/carousel.css"/>
+  <link rel ="stylesheet" href="../css/bootstrap.css"/>
+  <style>
+      body{
+         background-color:rgba(0,0,0,0.7);
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+   
+	
+</h:head>
+<h:body>
+	 <header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: rgba(0,0,0,0.6);">
+    <a class="navbar-brand" href="form.xhtml">Adote</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        
+          <li class="nav-item active">
+          <a class="nav-link" href="Admin.xhtml">Administrador</a>
+        </li>
+           	
+      </ul>
+     
+    </div>
+  </nav>
+</header>
+	
+		<main role="main">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		</ol>
+			<div class="carousel-inner">
+					<div class="carousel-item active">
+					<img class="third-slide" src="../img/index.jpg"/>
+					<svg class="bd-placeholder-img" widht="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+						<div class="container">
+							<div class="carousel-caption text-left">
+							
+							<h1>Adote um cachorro</h1>
+							<p>Adote um cachorro e seja feliz, com seu melhor amigo</p>
+							<br/>
+							
+							
+							
+							<br/><br/>
+							<p><a class="btn btn-primary" href="form.xhtml" role="button">Adotar</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="container marketing">
+				<div class="row" style="background-color:#09C" id="focinhos">
+				
+				<ui:repeat var="repeti" value="#{Dog.listar()}">
+					<div class="col-lg-4">
+					<br/>
+						  <img class="rounded-circle" src="../img/index.jpg" alt="Generic placeholder image" width="140" height="140"/>
+						<h2>#{repeti.tituloDois}</h2>
+						<br/><br/>
+						<h2>
+							#{repeti.paragrafoDois}
+  						</h2>
+  					<div class="collapse" id="collapseExample" >
+  						<div class="card card-body" style="background-color:#09C">
+    					
+  						</div>
+					</div>
+				
+							
+							<br/><br/>
+							</div>
+						</ui:repeat>
+						
+						
+					</div>
+					<ui:repeat var="listando" value="#{Ong.listarTres()}">
+					<hr class="featurette-divider"></hr>
+					<div class="row featurette" style="background-color:#09C">
+						<div class="col-md-7">
+							<h2>ONG que ajuda esse projeto:<span class="text-muted">#{listando.tituloTres}</span></h2>
+							
+							
+							<h2>#{listando.paragrafoTres} </h2>
+							
+						</div>
+						<div class="col-md-5">
+							 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"  preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">foto do dog</text></svg>							
+						</div>
+					</div>
+					</ui:repeat>
+					
+					
+					
+					
+					
+		<hr class="featurette-divider"></hr>
+		 <h1 class="display-4" style="color:#fff;">Fotos e vídeos </h1>
+		 <div class='album py-5' style="background-color:#09C">
+              <div class='container' >
+
+                <div class='row'>
+
+           	
+		<ui:repeat var="faz" value="#{Fileupload.listar()}">
+		<div class='col-md-4'>
+          <div class='card mb-4 shadow-sm'>
+          <img width="100%" height="225" src="../#{faz.texto}"/>
+            <div class='card-body'>
+              <p class='card-text'>#{faz.imagem}</p>
+              <div class='d-flex justify-content-between align-items-center'>
+                <div class='btn-group'>
+                  </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        </ui:repeat>
+        
+        <ui:repeat var="video" value="#{Videoupload.listar()}">
+     		<div class='col-md-4'>
+     		<div class='card mb-4 shadow-sm'>
+ 			<video width="426" height="240">
+ 			 <source src="../#{video.texto}"/>
+  				
+			</video>
+ 			   <div class='card-body'>
+ 			<p>
+ 			</p>
+ 			 <div class='d-flex justify-content-between align-items-center'>
+ 			                 <div class='btn-group'>
+ 			    
+ 			  </div>
+ 			  </div>
+ 			  </div>
+		 </div>
+        </div>
+        </ui:repeat>
+        
+        
+        </div>
+        </div>
+        </div>
+		<hr class="featurette-divider"></hr>
+						</div>
+					
+						
+				
+			<br/>
+		<footer class="container">
+		<p class="float-right"><a href="#">Voltar ao topo</a></p>
+		<p>2019 Densenvolvido: Melissa de Sousa &middot;<a href="https://about.gitlab.com/">Gitlab</a> &middot;<a href="https://gitlab.com/melsousa/javaweb">@melsousa</a>
+					
+		</p>
+		</footer>
+	</main>
+	
+<h:form>
+		<h:outputLabel  value="nome"/>
+		<h:inputText name='nome'  requiredMessage="Nome" value="#{Teste.user.nome}"/><br></br><br></br>
+		<h:outputLabel value="senha"/>
+		<h:inputText name='senha' requiredMessage="Senha" value="#{Teste.user.senha}"/><br></br><br></br>
+		<h:commandButton value="Entrar"  action="#{Teste.salvar()}"></h:commandButton>
+	</h:form>
+
+
+</h:body>
+  <script src="../js/jquery-3.3.1.slim.min.js"></script>
+	  <script src="../js/jquery-slim.min.js"></script>
+	  <script src="../js/bootstrap.bundle.js" ></script>
+
+</html>

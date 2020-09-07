@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<f:metadata>
+<f:event listener="#{Mostrar.carregarId(param['id'])}" type="preRenderView">
+</f:event>
+</f:metadata>
+
+</h:head>
+<body>
+<h1>editar</h1>
+<h:form>
+		<h:outputLabel  value="nome"/>
+		<h:inputHidden value="#{Mostrar.user.id}" id="id"></h:inputHidden>
+		<h:inputText name='nome'  requiredMessage="Nome" value="#{Mostrar.user.nome}"/><br></br><br></br>
+		<h:outputLabel value="senha"/>
+		<h:inputSecret name='senha' requiredMessage="Senha" value="#{Mostrar.user.senha}"/><br></br><br></br>
+		<h:commandButton value="Editar" >
+			<f:ajax render="msg" listener="#{Mostrar.atualizar()}" execute="@form" onevent="teste"></f:ajax>
+		</h:commandButton>
+	</h:form>
+	<div id="res"></div>
+		<h:outputText id="msg" value="#{mostrar.user.id}" />
+		<script>
+		function teste(data){
+			switch(data.status){
+			case "begin":
+					document.getElementById("res").innerHTML = "iniciando...";break;
+			case "complete":
+					document.getElementById("res").innerHTML = "completando...";break;
+			case "success":
+				document.getElementById("res").innerHTML = "finalizado.";break;
+			}
+		}
+	</script>
+	<a href="index.xhtml">voltar</a>
+</body>
+</html>

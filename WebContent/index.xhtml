@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+<h:head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    
+    <meta name="generator" content="Jekyll v3.8.5"/>
+    <title>Focinho Adoção</title>
+	
+	 <link rel="stylesheet" href="../css/carousel.css"/>
+  <link rel ="stylesheet" href="../css/bootstrap.css"/>
+  <style>
+      body{
+         background-color:rgba(0,0,0,0.7);
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    </style>
+   
+    
+</h:head>
+<h:body>
+	 <header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: rgba(0,0,0,0.6);">
+    <a class="navbar-brand" href="form.xhtml">Adote</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="adicionarOng.xhtml">Adicionar ONG</a>
+        </li>
+          <li class="nav-item active">
+          <a class="nav-link" href="adicionarDog.xhtml">Adicionar dog</a>
+        </li>
+         <li class="nav-item active">
+          <a class="nav-link" href="imgEdit.xhtml">Adicionar Imagem</a>
+        </li>
+         <li class="nav-item active">
+          <a class="nav-link" href="adicionarVideo.xhtml">Adicionar Vídeo</a>
+        </li>
+        
+        <li class="nav-item active">
+      	  <h:form>
+		<h:commandButton class="btn btn-outline-light" value="sair" action="#{Teste.logout()}"></h:commandButton>
+		</h:form>
+             </li>  	
+      </ul>
+     
+    </div>
+  </nav>
+</header>
+	<main role="main">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+		</ol>
+			<div class="carousel-inner">
+					<div class="carousel-item active">
+					<img class="third-slide" src="../img/index.jpg"/>
+					<svg class="bd-placeholder-img" widht="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+						<div class="container">
+							<div class="carousel-caption text-left">
+							
+							<h1>Adote um cachorro</h1>
+							<p>Adote um cachorro e seja feliz, com seu melhor amigo</p>
+							<br/>
+							
+							
+							
+							<br/><br/>
+							<p><a class="btn btn-primary" href="form.xhtml" role="button">Adotar</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="container marketing">
+				<div class="row" style="background-color:#09C" id="focinhos">
+				
+				<ui:repeat var="repeti" value="#{Dog.listar()}">
+					<div class="col-lg-4">
+					<br/>
+						  <img class="rounded-circle" src="../img/desenho.jpg" alt="Generic placeholder image" width="140" height="140"/>
+						<h2>#{repeti.tituloDois}</h2>
+						<br/><br/>
+						<h3>
+						#{repeti.paragrafoDois}<br/>
+  						</h3>
+  					<div class="collapse" id="collapseExample" >
+  						<div class="card card-body" style="background-color:#09C">
+    						
+  						</div>
+					</div>
+				
+							<a type="button" class="btn btn-outline-light"  href="editarDog.xhtml?id=#{repeti.id}">Atualizar</a><br/><br/>
+							<h:form>
+							<h:commandButton value="Excluir" class="btn btn-outline-light">
+							<f:ajax render="msg" listener="#{Dog.excluirDois(repeti.id)}"></f:ajax>
+							</h:commandButton>
+							</h:form>
+							<br/><br/>
+							</div>
+						</ui:repeat>
+						
+						
+					</div>
+					<ui:repeat var="listando" value="#{Ong.listarTres()}">
+					<hr class="featurette-divider"></hr>
+					<div class="row featurette" style="background-color:#09C">
+						<div class="col-md-7">
+							<h2>ONG que ajuda esse projeto:<span class="text-muted">#{listando.tituloTres}</span></h2>
+							
+							
+							<h2>#{listando.paragrafoTres} </h2>
+							<a type="button" class="btn btn-outline-light"  href="editarOng.xhtml?id=#{listando.id}">Editar</a><br/><br/>
+							<h:form>
+							<h:commandButton value="Excluir" class="btn btn-outline-light">
+							<f:ajax render="msg" listener="#{Ong.excluir(listando.id)}"></f:ajax>
+							</h:commandButton>
+							</h:form>
+						</div>
+						<div class="col-md-5">
+							<img src="../img/pata.png" width="500" height="450"/>							
+						</div>
+					</div>
+					</ui:repeat>
+					
+					
+					
+					
+					
+		<hr class="featurette-divider"></hr>
+		 <h1 class="display-4" style="color:#fff;">Fotos e vídeos </h1>
+		 <div class='album py-5' style="background-color:#09C">
+              <div class='container' >
+
+                <div class='row'>
+
+           	
+		<ui:repeat var="faz" value="#{Fileupload.listar()}">
+		<div class='col-md-4'>
+          <div class='card mb-4 shadow-sm'>
+          <img width="100%" height="225" src="../#{faz.texto}"/>
+            <div class='card-body'>
+              <p class='card-text'>#{faz.imagem}</p>
+              <div class='d-flex justify-content-between align-items-center'>
+                <div class='btn-group'>
+                  <a type='button' class='btn btn-sm btn-outline-secondary' href="editarImg.xhtml?id=#{faz.id}">Editar</a> <br/>
+                  <h:form>
+                  <h:commandButton value="Excluir" class="btn btn-sm btn-outline-secondary">
+                  <f:ajax render="msg" listener="#{EditImg.excluirImg(faz.id)}"></f:ajax>
+                  </h:commandButton>
+                  </h:form>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        </ui:repeat>
+        
+        <ui:repeat var="video" value="#{Videoupload.listar()}">
+     		<div class='col-md-4'>
+     		<div class='card mb-4 shadow-sm'>
+ 			<p:media value="../#{video.texto}" width="250" height="300">
+     			<f:param name="autostart" value="false"/>
+     		</p:media>
+     		
+ 				   <div class='card-body'>
+ 				   <p class="card-text">#{video.video}</p>
+ 				      <div class='d-flex justify-content-between align-items-center'>
+ 			    <div class='btn-group'>
+ 			  <a type='button' class="btn btn-outline-primary" href="EditarVideo.xhtml?id=#{video.id}">Editar</a> <br/>
+ 			    <h:form>
+                  <h:commandButton value="Excluir" class="btn btn-outline-primary">
+                  <f:ajax render="msg" listener="#{EditVideo.excluirVideo(video.id)}"></f:ajax>
+                  </h:commandButton>
+                  </h:form>
+                
+ 			  </div>
+ 			  </div>
+ 			  </div>
+		 </div>
+        </div>
+        </ui:repeat>
+        
+        
+        </div>
+        </div>
+        </div>
+		<hr class="featurette-divider"></hr>
+						</div>
+					
+						
+				
+			<br/>
+		<footer class="container">
+		<p class="float-right"><a href="#">Voltar ao topo</a></p>
+		<p>2019 Densenvolvido: Melissa de Sousa &middot;<a href="https://about.gitlab.com/">Gitlab</a> &middot;<a href="https://gitlab.com/melsousa/javaweb">@melsousa</a>
+		</p>		</footer>
+	</main>
+  </h:body>  
+	  <script src="../js/jquery-3.3.1.slim.min.js"></script>
+	  <script src="../js/jquery-slim.min.js"></script>
+	  <script src="../js/bootstrap.bundle.js" ></script>
+</html>

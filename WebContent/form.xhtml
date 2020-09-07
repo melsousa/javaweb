@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	<h:head>
+		 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    
+    <meta name="generator" content="Jekyll v3.8.5"/>
+    <title>Focinho Adoção</title>
+	
+	 
+  <link rel ="stylesheet" href="../css/bootstrap.css"/>
+  <style>
+  	body{
+  		 background-color:rgba(0,0,0,0.7);
+  	}
+  </style>
+		
+	</h:head>
+	<h:body>
+	 <header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: rgba(0,0,0,0.6);">
+    <a class="navbar-brand" href="user.xhtml">Voltar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item active">
+          <a class="nav-link" href="index.xhtml">Focinhos</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="Admin.xhtml">Administrador <span class="sr-only">(current)</span></a>
+
+        </li>
+        
+      </ul>
+     
+    </div>
+  </nav>
+</header>
+	<div class="jumbotron jumbotron-fluid" style="background-color:white;">
+	<div class="container">
+		 <h1 class="display-4">Adote um amigo</h1>
+   		<p class="lead">Se inscreva, preencha todo o formulário e seus dados serão avaliados.  </p>
+   		<form>
+   			<div class="form-group">
+   			 <label for="exampleFormControlInput1">Nome</label>
+   				 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nome"/>
+   			</div>
+   			<div class="form-group">
+   			<label for="exampleFormControlInput1">Email</label>
+   			 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="email"/>
+   			</div>
+   			<div class="form-group">
+   				<label for="exampleFormControlTextarea1">Porque você quer adotar?</label>
+    			    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    			
+   			</div>
+   			<button type="submit" class="btn btn-outline-info">Enviar</button>
+   		</form>
+	</div>
+	</div>
+	<br/><br/><br/><br/><br/>
+		<footer class="container">
+		<p class="float-right"><a href="#">Voltar ao topo</a></p>
+		<p>2019 Densenvolvido: Melissa de Sousa &middot;<a href="https://about.gitlab.com/">Gitlab</a> &middot;<a href="https://gitlab.com/melsousa/javaweb">@melsousa</a>
+		<button type="button" class="btn btn-secondary btn-lg active" data-toggle="modal" data-target="#exampleModal" id="adm">Administrador</button>
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" arial-labelledby="exampleModalLabel" arian-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Logar como Administrador</h5>
+						<button type="button" class="close" data-dismiss="modal" arial-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+						</div>
+						<div class="modal-body">
+							<h:form>
+								<div class="form-group">
+								<label for="exampleInputEmail1">Nome</label>
+								<h:inputText class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+								</div>
+								<div class="form-group">
+								<label for="exampleInputPassword1"> Senha</label>
+								<h:inputSecret class="form-control" id="exampleInputPassword1"/>
+								</div>
+							</h:form>
+							
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+						<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" >Entrar</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</p>
+		</footer>
+		
+	
+		</h:body>
+	 <script src="../js/jquery-3.3.1.slim.min.js"></script>
+	  <script src="../js/jquery-slim.min.js"></script>
+	  <script src="../js/bootstrap.bundle.js" ></script>
+</html>
